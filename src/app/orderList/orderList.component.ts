@@ -11,9 +11,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 export class OrderListComponent implements OnInit {
 
   orderList = new OrderList();
-
   orderMesai:any[] =[];
-
   tscStatusList:any[]=[];
   productItemList:any[]=[];
   fablicImporterList:any[]=[];
@@ -28,13 +26,11 @@ export class OrderListComponent implements OnInit {
     this.tscStatusList=response1;
     
   })
-
     //ITEM(PO)
     let api2="http://127.0.0.1:3000/productItem";
     this.http.get(api2).subscribe((response2:any)=>{
     this.productItemList=response2;
   })
-
     //生地インポーター
     let api3="http://127.0.0.1:3000/fablicImporter";
     this.http.get(api3).subscribe((response3:any)=>{
