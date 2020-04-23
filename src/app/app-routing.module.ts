@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { OrderListComponent } from './orderList/orderList.component';
 import { ErrorComponent } from './error/error.component';
 import { MenuComponent } from './menu/menu.component';
-
+import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
 
 const routes: Routes = [
   {
@@ -12,6 +12,9 @@ const routes: Routes = [
   },
   {
     path:'orderList',component:OrderListComponent
+  },
+  {
+    path:'mesai',component:OrderMesaiComponent
   },
   {
     path:'error',component:ErrorComponent

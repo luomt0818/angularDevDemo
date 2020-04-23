@@ -53,11 +53,11 @@ export class OrderListComponent implements OnInit {
     this.orderMesai.splice(0,this.orderMesai.length);
 
     //项目check
-    if (this.orderList.orderId == null) {
+    if (this.orderList.orderId == null || this.orderList.orderId == "") {
       this.errorMsg.push("orderId不能为空.");
       console.log(this.errorMsg);
     } 
-    if (this.orderList.productFabricNo == null) {
+    if (this.orderList.productFabricNo==null || this.orderList.productFabricNo=="") {
       this.errorMsg.push("生地品番不能为空.");
       console.log(this.errorMsg);
     }
@@ -69,7 +69,6 @@ export class OrderListComponent implements OnInit {
       //存在跨域   
       let api='http://127.0.0.1:3000/dologin';
       this.http.post(api,{"orderList":this.orderList},httpOptions).subscribe((response:any)=>{
-      //this.orderMesai.forEach.push(response);
       console.log(response.length);
       for (var i=0;i<response.length;i++) {
         this.orderMesai.push(response[i]);
@@ -84,7 +83,6 @@ export class OrderListComponent implements OnInit {
 
   }
 
-  
   /*
   tscStatusList =  [{    lable:'',   value:''
   },{    lable:'一時保存',   value:'T0'

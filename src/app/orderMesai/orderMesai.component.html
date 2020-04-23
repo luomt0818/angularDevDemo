@@ -1,0 +1,64 @@
+  <div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>注文明细</h1>
+            </div>
+        </div>
+    </div>
+  </div>
+  <hr>
+<div *ngFor="let searchMesaiList of searchMesaiList;let key=index">
+  <table border="1" width="85%" align="center">
+    <tr>
+      <td>注文ID</td>
+      <td>{{searchMesaiList.orderId}}</td>
+    </tr>
+    <tr>
+      <td>ステータス</td>
+      <td>{{searchMesaiList.tscStatusNm}}</td>
+    </tr>
+    <tr>
+      <td>ITEM(PO)</td>
+      <td>{{searchMesaiList.productItemNm}}</td>
+    </tr>
+    <tr>
+      <td>注文確定日From</td>
+      <td>{{searchMesaiList.productOrderdDateFrom}}</td>
+    </tr>
+    <tr>
+      <td>注文確定日To</td>
+      <td>{{searchMesaiList.productOrderdDateTo}}</td>
+    </tr>
+    <tr>
+      <td>お渡し日From</td>
+      <td>{{searchMesaiList.custDeliverDateFrom}}</td>
+    </tr>
+    <tr>
+      <td>お渡し日To</td>
+      <td>{{searchMesaiList.custDeliverDateTo}}</td>
+    </tr>
+    <tr>
+      <td>生地品番</td>
+      <td>{{searchMesaiList.productFabricNo}}</td>
+    </tr>
+    <tr>
+      <td>店着日From</td>
+      <td>{{searchMesaiList.custShopDeliveryDateFrom}}</td>
+    </tr>
+    <tr>
+      <td>店着日To</td>
+      <td>{{searchMesaiList.custShopDeliveryDateTo}}</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <button id="backButton" (click)="back()"><a routerLink="/orderList">&nbsp;戻る&nbsp;</a></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="updateButton" (click)="update()">&nbsp;訂正&nbsp;</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="deleteButton" (click)="delete()"><a routerLink="/orderList">&nbsp;削除&nbsp;</a></button>
+      </td>
+    </tr>
+  </table>
+
+</div>

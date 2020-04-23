@@ -13,13 +13,18 @@ import { AppComponent } from './app.component';
 import { OrderListComponent } from './orderList/orderList.component';
 import { ErrorComponent } from './error/error.component';
 import { MenuComponent } from './menu/menu.component';
+import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
+
+import { BootstrapModalModule } from 'ngx-bootstrap-modal';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
    declarations: [
       AppComponent,
       OrderListComponent,
       ErrorComponent,
-      MenuComponent
+      MenuComponent,
+      OrderMesaiComponent
    ],
    imports: [
       BrowserModule,
@@ -28,8 +33,9 @@ import { MenuComponent } from './menu/menu.component';
       FormsModule,
       CommonModule,
       HttpClientModule,
-      HttpClientJsonpModule
-
+      HttpClientJsonpModule,
+      BootstrapModalModule,
+      ModalModule
    ],
    providers: [],
    bootstrap: [

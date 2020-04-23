@@ -11,7 +11,9 @@
 <div class="div-frame">
 <!-- エラーメッセージのdiv -->
 <div id="errorMessage" name="errorMessage">
-	<li *ngFor='let message of errorMsg'> {{message}} </li>
+	<font color="red">
+	<li *ngFor='let message of errorMsg'> {{message}}  </li>
+    </font>
 </div>
 <!-- 検索条件のdiv -->
 <!-- 検索条件部分 start -->
@@ -264,7 +266,7 @@
 			<td>
 				<input type="checkbox" name="orderIndex" id="orderIndex">
 			</td>
-			<td>{{item.orderId}}</td>
+			<td><a routerLink="/mesai">{{item.orderId}}</a></td>
 			<td>{{item.tscStatusNm}}</td>
 			<td>{{item.productItemNm}}</td>
 			<td>{{item.productOrderdDateFrom}}</td>
