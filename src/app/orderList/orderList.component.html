@@ -1,0 +1,281 @@
+<div class="breadcrumbs">
+	<div class="col-sm-4">
+	    <div class="page-header float-left">
+	        <div class="page-title">
+	            <h1>オーダー一覧</h1>
+	        </div>
+	    </div>
+	</div>
+</div>
+<hr>
+<div class="div-frame">
+<!-- エラーメッセージのdiv -->
+<div id="errorMessage" name="errorMessage">
+	<li *ngFor='let message of errorMsg'> {{message}} </li>
+</div>
+<!-- 検索条件のdiv -->
+<!-- 検索条件部分 start -->
+<!-- 左側項目start -->
+<div class="div-a">
+	<!-- 注文ID -->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">注文ID</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<input type="text" id="orderId" name="orderId" [(ngModel)]="orderList.orderId">
+		</div>
+	</div>
+	<!-- ステータス -->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">ステータス</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<select name="tscStatus" id="tscStatus" [(ngModel)]="orderList.tscStatus">
+				<option [value]="tscStatusItem.value" *ngFor="let tscStatusItem of tscStatusList">
+					{{tscStatusItem.lable}}</option>
+			</select>
+		</div>
+	</div>
+	<!-- ITEM -->
+	<div class="row form-group">
+		<!-- ITEM(PO) -->
+		<div class="col col-md-4">
+			<label class=" form-control-label">ITEM(PO)</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<select name="productItem" id="productItem" [(ngModel)]="orderList.productItem">
+				<option [value]="productItemItem.value" *ngFor="let productItemItem of productItemList">
+					{{productItemItem.lable}}
+				</option>
+			</select>
+		</div>
+	</div>
+	<!-- black -->
+	<div class="row form-group">
+		<div class="col col-md-3">
+			<label class=" form-control-label">　</label>
+		</div>
+		<div class="col-12 col-md-9"></div>
+	</div>
+	<!-- 注文確定日 -->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">注文確定日</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<div class="form-check-inline form-check">
+				<input type="text" name="productOrderdDateFrom" [(ngModel)]="orderList.productOrderdDateFrom"
+					id="productOrderdDateFrom" type="text" placeholder="年/月/日" autocomplete="off" />
+				&nbsp;〜&nbsp;
+				<input type="text" name="productOrderdDateTo" [(ngModel)]="orderList.productOrderdDateTo"
+					id="productOrderdDateTo" type="text" placeholder="年/月/日" autocomplete="off" />
+			</div>
+		</div>
+	</div>
+	<!-- 店舗、 商品部、メーカー　登録の場合　 　　「お渡し日」を表示する-->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">お渡し日</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<div class="form-check-inline form-check">
+				<input type="text" name="custDeliverDateFrom" [(ngModel)]="orderList.custDeliverDateFrom"
+					id="custDeliverDateFrom" type="text" placeholder="年/月/日" autocomplete="off" />
+				&nbsp;〜&nbsp;
+				<input type="text" name="custDeliverDateTo" id="custDeliverDateTo"
+					[(ngModel)]="orderList.custDeliverDateTo" type="text" placeholder="年/月/日" autocomplete="off" />
+			</div>
+		</div>
+	</div>
+	<!-- 店舗、 商品部、メーカー　登録の場合　 　　「取消の注文を含む」を表示する-->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">　</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<div class="form-check-inline form-check">
+				<label for="isCancelled" class="form-check-label">
+					<input type="checkbox" name="isCancelled" id="isCancelled" [(ngModel)]="orderList.isCancelled"
+						(click)="checkboxOnclick()" />
+					取消の注文を含む
+				</label>
+			</div>
+		</div>
+	</div>
+	<!-- 店舗、 商品部　登録の場合　 　　「工場自動連携失敗のみ」を表示する-->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">　</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<div class="form-check-inline form-check">
+				<label for="isSendFailure" class="form-check-label">
+					<input type="checkbox" name="isSendFailure" id="isSendFailure" [(ngModel)]="orderList.isSendFailure"
+						(click)="checkboxOnclick()" />
+					工場自動連携失敗のみ
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 左側項目   end -->
+
+<!-- 右側項目 start -->
+<div class="div-b">
+	<!-- 会員番号 -->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">会員番号</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<input type="text" name="custCd" id="custCd" [(ngModel)]="orderList.custCd" placeholder="" />
+		</div>
+	</div>
+	<!-- 営業担当者 -->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">販売スタッフ</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<input type="text" name="storeStaffNm" id="storeStaffNm" [(ngModel)]="orderList.storeStaffNm"
+				placeholder="" />
+		</div>
+	</div>
+	<!-- 生地品番 -->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">生地品番</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<input name="productFabricNo" id="productFabricNo" [(ngModel)]="orderList.productFabricNo" type="text"
+				placeholder="" />
+		</div>
+	</div>
+	<!-- 店舗　 　　「生地インポーター」を表示する-->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">生地インポーター</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<select id="fablicImporter" [(ngModel)]="orderList.fablicImporter">
+				<option [value]="fablicImporterItem.value" *ngFor="let fablicImporterItem of fablicImporterList">
+					{{fablicImporterItem.lable}}</option>
+			</select>
+		</div>
+	</div>
+	<!-- 店着日-->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">店着日</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<div class="form-check-inline form-check">
+				<input type="text" [(ngModel)]="orderList.custShopDeliveryDateFrom" id="custShopDeliveryDateFrom"
+					type="text" placeholder="年/月/日" autocomplete="off" />
+				&nbsp;〜&nbsp;
+				<input type="text" [(ngModel)]="orderList.custShopDeliveryDateTo" id="custShopDeliveryDateTo"
+					type="text" placeholder="年/月/日" autocomplete="off" />
+			</div>
+		</div>
+	</div>
+	<!-- 更新日-->
+	<div class="row form-group">
+		<div class="col col-md-4">
+			<label class=" form-control-label">更新日</label>
+		</div>
+		<div class="col-12 col-md-8">
+			<div class="form-check-inline form-check">
+				<input type="text" id="updatedAtFrom" [(ngModel)]="orderList.updatedAtFrom" type="text"
+					placeholder="年/月/日" autocomplete="off" />
+				&nbsp;〜&nbsp;
+				<input type="text" id="updatedAtTo" type="text" [(ngModel)]="orderList.updatedAtTo" placeholder="年/月/日"
+					autocomplete="off" />
+			</div>
+		</div>
+	</div>
+	<!-- 店舗、 商品部、メーカー　登録の場合　 　　「未会計のみ」或いは「未承認のみ」を表示する-->
+	<div class="row form-group">
+		<div class="col-12 col-md-8">
+			<div class="form-check-inline form-check">
+				<!-- 店舗、 商品部　登録の場合　 　　「未会計のみ」を表示する-->
+				<label for="isAccount" class="form-check-label">
+					<input type="checkbox" path="isAccount" id="isAccount" [(ngModel)]="orderList.isAccount"
+						(click)="checkboxOnclick()" placeholder="" />
+					会計未入力のみ
+				</label>
+			</div>
+		</div>
+		<div class="col col-md-4">
+			<label class=" form-control-label">　</label>
+		</div>
+	</div>
+
+	<div class="row form-group">
+		<!-- 店舗 登録の場合　 　　「他店舗の注文を含む（参照のみ）」を表示する-->
+		<div class="col-12 col-md-8">
+			<div class="form-check-inline form-check">
+				<label for="isOtherShop" class="form-check-label">
+					<input type="checkbox" path="isOtherShop" id="isOtherShop" [(ngModel)]="orderList.isOtherShop"
+						(click)="checkboxOnclick()" placeholder="" class="form-check-input" /> 他店舗の注文を含む（参照のみ）
+				</label>
+			</div>
+		</div>
+		<div class="col col-md-4">
+			<label class=" form-control-label">　</label>
+		</div>
+	</div>
+</div>
+<!-- 右側項目 end -->
+<!-- 検索条件部分 End -->
+<!-- 制御ボタン部分 Start -->
+<div class="row">
+	<div class="col">　</div>
+	<div class="col col-md-4">
+		<button (click)="reset()" id="clear_button">&nbsp;クリア&nbsp;</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<button id="searchButton" (click)="searchOrder()"><i></i>&nbsp;検索</button>
+<!-- 制御ボタン部分 End -->
+</div>
+<br>
+<hr>
+<pre>
+    {{orderList|json}}
+</pre>
+<hr>
+
+<div *ngIf="orderMesai.length != 0">
+	<table border="1">
+		<tr>
+			<td>選択</td>
+			<td>注文ID</td>
+			<td>ステータス</td>
+			<td>ITEM(PO)</td>
+			<td>注文確定日From</td>
+			<td>注文確定日To</td>
+			<td>お渡し日From</td>
+			<td>お渡し日To</td>
+			<td>生地品番</td>
+			<td>店着日From</td>
+			<td>店着日To</td>
+		</tr>
+		<tr *ngFor="let item of orderMesai;let key=index">
+			<td>
+				<input type="checkbox" name="orderIndex" id="orderIndex">
+			</td>
+			<td>{{item.orderId}}</td>
+			<td>{{item.tscStatusNm}}</td>
+			<td>{{item.productItemNm}}</td>
+			<td>{{item.productOrderdDateFrom}}</td>
+			<td>{{item.productOrderdDateTo}}</td>
+			<td>{{item.custDeliverDateFrom}}</td>
+			<td>{{item.custDeliverDateTo}}</td>
+			<td>{{item.productFabricNo}}</td>
+			<td>{{item.custShopDeliveryDateFrom}}</td>
+			<td>{{item.custShopDeliveryDateTo}}</td>
+		</tr>
+	</table>
+</div>
+</div>
+</div>

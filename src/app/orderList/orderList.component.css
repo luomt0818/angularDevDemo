@@ -1,0 +1,15 @@
+.div-frame {
+  float: left;
+  width: 100%;
+  border: 0px solid #f00;
+}
+.div-a {
+  float: left;
+  width: 50%;
+  border: 0px solid #f00;
+}
+.div-b {
+  float: left;
+  width: 50%;
+  border: 0px solid #000;
+}
