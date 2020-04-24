@@ -22,20 +22,17 @@ export class OrderMesaiComponent implements OnInit {
   ngOnInit() {
   }
 
-
   back() {
-
+    this.router.navigate(['/orderList']);
   }
 
   update() {
  //跳转并进行get传值
  let queryParams={
-    queryParams:{'aid':123}
+    queryParams:{'orderId':this.searchMesaiList[0].orderId,'productFabricNo':this.searchMesaiList[0].productFabricNo}
+    // queryParams:{'searchMesaiList':this.searchMesaiList[0]}
   }
   this.router.navigate(['/orderList'],queryParams);
+  // this.router.navigate(['/orderList','1243'])
 }
-
-  delete() {
-
-  }
 }

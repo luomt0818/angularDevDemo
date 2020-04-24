@@ -15,8 +15,6 @@ import { ErrorComponent } from './error/error.component';
 import { MenuComponent } from './menu/menu.component';
 import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
 
-import { BootstrapModalModule } from 'ngx-bootstrap-modal';
-import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
    declarations: [
@@ -33,9 +31,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
       FormsModule,
       CommonModule,
       HttpClientModule,
-      HttpClientJsonpModule,
-      BootstrapModalModule,
-      ModalModule
+      HttpClientJsonpModule
    ],
    providers: [],
    bootstrap: [

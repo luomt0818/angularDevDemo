@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { OrderList } from './orderList';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-orderList',
@@ -17,28 +18,47 @@ export class OrderListComponent implements OnInit {
   fablicImporterList:any[]=[];
   errorMsg:string[] = [];
 
-  constructor(public http:HttpClient) { 
+  constructor(public http:HttpClient,public route:ActivatedRoute) { 
 
     //下拉列表初期化
     //ステータス
     let api1="http://127.0.0.1:3000/tscStatus";
     this.http.get(api1).subscribe((response1:any)=>{
     this.tscStatusList=response1;
-    
-  })
+    },error => {
+      if (error.status == 0){
+        this.errorMsg.push("网络断开,ステータス取得失败");
+      }
+    })
     //ITEM(PO)
     let api2="http://127.0.0.1:3000/productItem";
     this.http.get(api2).subscribe((response2:any)=>{
     this.productItemList=response2;
+  },error => {
+    if (error.status == 0){
+      this.errorMsg.push("网络断开,ITEM(PO)取得失败");
+    }
   })
     //生地インポーター
     let api3="http://127.0.0.1:3000/fablicImporter";
     this.http.get(api3).subscribe((response3:any)=>{
     this.fablicImporterList=response3;
+    },error => {
+      if (error.status == 0){
+        this.errorMsg.push("网络断开,生地インポーター取得失败");
+      }
     })
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+    this.route.queryParams.subscribe((data)=>{
+      console.log(data);
+      this.orderList.orderId =data.orderId;
+      this.orderList.productFabricNo =data.productFabricNo;
+      console.log("aaaaaaaa");
+    });
+   }
 
   //清空
   reset(){
@@ -74,6 +94,10 @@ export class OrderListComponent implements OnInit {
         this.orderMesai.push(response[i]);
       }
       console.log(this.orderMesai.length);
+      },error => {
+        if (error.status == 0){
+          this.errorMsg.push("网络断开,请求失败");
+        }
       })
     }
     
