@@ -32,7 +32,7 @@ export class OrderListComponent implements OnInit {
     this.apiGetDate.getAll("tscStatus").subscribe((response1:any)=>{
     this.tscStatusList=response1;
     },error => {
-      if (error.status == 0){
+      if (error.status != 200){
         this.errorMsg.push("网络断开,ステータス取得失败");
       }
     })
@@ -42,7 +42,7 @@ export class OrderListComponent implements OnInit {
     this.apiGetDate.getAll("productItem").subscribe((response2:any)=>{
     this.productItemList=response2;
   },error => {
-    if (error.status == 0){
+    if (error.status != 200){
       this.errorMsg.push("网络断开,ITEM(PO)取得失败");
     }
   })
@@ -52,7 +52,7 @@ export class OrderListComponent implements OnInit {
     this.apiGetDate.getAll("fablicImporter").subscribe((response3:any)=>{
     this.fablicImporterList=response3;
     },error => {
-      if (error.status == 0){
+      if (error.status != 200){
         this.errorMsg.push("网络断开,生地インポーター取得失败");
       }
     })
@@ -108,7 +108,7 @@ export class OrderListComponent implements OnInit {
       }
       console.log(this.orderMesai.length);
       },error => {
-        if (error.status == 0){
+        if (error.status != 200){
           this.errorMsg.push("网络断开,请求失败");
         }
       })

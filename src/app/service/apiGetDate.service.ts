@@ -27,9 +27,4 @@ getPost(strApi:string,paraType:string,orderList:OrderList){
   return this.http.post(apiUrl,{paraType:orderList},httpOptions);
 }
 
-
-
-
-
-
 }

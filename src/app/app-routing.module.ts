@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ViewChildren } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { OrderListComponent } from './orderList/orderList.component';

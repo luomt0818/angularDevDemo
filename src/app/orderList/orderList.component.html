@@ -1,11 +1,5 @@
-<div class="breadcrumbs">
-	<div class="col-sm-4">
-	    <div class="page-header float-left">
-	        <div class="page-title">
-	            <h1>オーダー一覧</h1>
-	        </div>
-	    </div>
-	</div>
+<div>
+   <h1>オーダー一覧</h1>
 </div>
 <hr>
 <div class="div-frame">
@@ -240,11 +234,7 @@
 		<button id="searchButton" (click)="searchOrder()"><i></i>&nbsp;検索</button>
 <!-- 制御ボタン部分 End -->
 </div>
-<br>
-<hr>
-<pre>
-    {{orderList|json}}
-</pre>
+</div>
 <hr>
 
 <div *ngIf="orderMesai.length != 0">
@@ -279,5 +269,6 @@
 		</tr>
 	</table>
 </div>
-</div>
+<hr>
+{{orderList|json}}
 </div>
