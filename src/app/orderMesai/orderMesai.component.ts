@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router} from '@angular/router';
 
+import { ApiGetDateService } from '../service/apiGetDate.service';
+
 @Component({
   selector: 'app-orderMesai',
   templateUrl: './orderMesai.component.html',
@@ -12,9 +14,10 @@ export class OrderMesaiComponent implements OnInit {
 
   searchMesaiList:any[] = [];
 
-  constructor(public http:HttpClient,public router:Router) { 
-    let api2="http://127.0.0.1:3000/search";
-    this.http.get(api2).subscribe((response:any)=>{
+  constructor(public http:HttpClient,public router:Router,public apiGetDate:ApiGetDateService) { 
+    // let api2="http://127.0.0.1:3000/search";
+    // this.http.get(api2).subscribe((response:any)=>{
+    this.apiGetDate.getAll("search").subscribe((response:any)=>{
     this.searchMesaiList.push(response);
     });
   }
