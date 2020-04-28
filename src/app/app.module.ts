@@ -14,6 +14,7 @@ import { OrderListComponent } from './orderList/orderList.component';
 import { ErrorComponent } from './error/error.component';
 import { MenuComponent } from './menu/menu.component';
 import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
       OrderListComponent,
       ErrorComponent,
       MenuComponent,
-      OrderMesaiComponent
+      OrderMesaiComponent,
+      TestComponent
    ],
    imports: [
       BrowserModule,

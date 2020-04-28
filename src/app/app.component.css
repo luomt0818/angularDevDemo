@@ -2,13 +2,13 @@
   position: relative;
 }
 .left {
-  width: 250px;
+  width: 200px;
   top: 0;
   left: 20px;
 }
 .right {
   position: absolute;
-  top: 0;
-  left: 250px;
+  top: -33%;
+  left: 200px;
   right: 0;
 }

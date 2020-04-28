@@ -26,7 +26,7 @@ export class OrderMesaiComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/orderList']);
+    this.router.navigate(['/test']);
   }
 
   update() {

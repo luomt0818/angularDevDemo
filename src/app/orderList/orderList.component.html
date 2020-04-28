@@ -2,6 +2,8 @@
    <h1>オーダー一覧</h1>
 </div>
 <hr>
+
+<body ng-app="wui">
 <div class="div-frame">
 <!-- エラーメッセージのdiv -->
 <div id="errorMessage" name="errorMessage">
@@ -67,9 +69,11 @@
 				&nbsp;〜&nbsp;
 				<input type="text" name="productOrderdDateTo" [(ngModel)]="orderList.productOrderdDateTo"
 					id="productOrderdDateTo" type="text" placeholder="年/月/日" autocomplete="off" />
+					
 			</div>
 		</div>
 	</div>
+
 	<!-- 店舗、 商品部、メーカー　登録の場合　 　　「お渡し日」を表示する-->
 	<div class="row form-group">
 		<div class="col col-md-4">
@@ -226,14 +230,11 @@
 <!-- 右側項目 end -->
 <!-- 検索条件部分 End -->
 <!-- 制御ボタン部分 Start -->
-<div class="row">
-	<div class="col">　</div>
-	<div class="col col-md-4">
-		<button (click)="reset()" id="clear_button">&nbsp;クリア&nbsp;</button>
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		<button id="searchButton" (click)="searchOrder()"><i></i>&nbsp;検索</button>
+<div  align="center">
+	<button (click)="reset()" id="clear_button">&nbsp;クリア&nbsp;</button>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<button id="searchButton" (click)="searchOrder()"><i></i>&nbsp;検索</button>
 <!-- 制御ボタン部分 End -->
-</div>
 </div>
 <hr>
 
@@ -272,3 +273,4 @@
 <hr>
 {{orderList|json}}
 </div>
+</body>
