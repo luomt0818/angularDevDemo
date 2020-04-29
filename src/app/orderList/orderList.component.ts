@@ -5,7 +5,7 @@ import { HttpClient,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 import { ApiGetDateService } from '../service/apiGetDate.service';
-import { collectExternalReferences } from '@angular/compiler';
+// import { collectExternalReferences } from '@angular/compiler';
 
 @Component({
   selector: 'app-orderList',

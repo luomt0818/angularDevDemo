@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { NgModule } from '@angular/core';
 
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -15,6 +15,7 @@ import { ErrorComponent } from './error/error.component';
 import { MenuComponent } from './menu/menu.component';
 import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
 import { TestComponent } from './test/test.component';
+import { ItemStatusPipe } from './pipe/itemStatus.pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { TestComponent } from './test/test.component';
       ErrorComponent,
       MenuComponent,
       OrderMesaiComponent,
-      TestComponent
+      TestComponent,
+      ItemStatusPipe
    ],
    imports: [
       BrowserModule,

@@ -252,21 +252,25 @@
 			<td>生地品番</td>
 			<td>店着日From</td>
 			<td>店着日To</td>
+			<td>合計金額</td>
+			<td>百分比</td>
 		</tr>
 		<tr *ngFor="let item of orderMesai;let key=index">
 			<td>
 				<input type="checkbox" name="orderIndex" id="orderIndex">
 			</td>
 			<td><a routerLink="/mesai">{{item.orderId}}</a></td>
-			<td>{{item.tscStatusNm}}</td>
+			<td>{{item.tscStatusNm | itemStatus}}</td>
 			<td>{{item.productItemNm}}</td>
 			<td>{{item.productOrderdDateFrom}}</td>
 			<td>{{item.productOrderdDateTo}}</td>
 			<td>{{item.custDeliverDateFrom}}</td>
 			<td>{{item.custDeliverDateTo}}</td>
 			<td>{{item.productFabricNo}}</td>
-			<td>{{item.custShopDeliveryDateFrom}}</td>
-			<td>{{item.custShopDeliveryDateTo}}</td>
+			<td>{{item.custShopDeliveryDateFrom | date:'yyyy-MM-dd'}}</td>
+			<td>{{item.custShopDeliveryDateTo | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+			<td>{{item.totalMoney | currency}}</td>
+			<td>{{item.totalPer | percent}}</td>
 		</tr>
 	</table>
 </div>
