@@ -1,52 +1,9 @@
 <div class="wrap">
   <div class="left">
-    <router-outlet name="outa"></router-outlet>
+    <router-outlet name="outLeft"></router-outlet>
   </div>
 
   <div class="right">
-    <router-outlet name="outb"></router-outlet>
+    <router-outlet name="outRight"></router-outlet>
   </div>
 </div>
-
-<!-- <html lang="en">
-
-<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="../../assets/js/angular.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="../../assets/css/wui.min.css"/>
-<script type="text/javascript" src="../../assets/js/wui-date.js"></script>
-
-
-<script type="text/javascript">
-  //定义一个angularJS模块
-  let wui = angular.module("wui", ["wui.date"]);
-
-  //wui使用注意事项：
-  //body标签中的ng-app是angularJS的模块加载指令，不可缺少
-  //每个div内只能包含一个wui-date标签，其它的会被自动忽略
-  //ng-model是必须属性，必须以date开头，选择日期后，model名相同的元素，都会设置相同的数值
-</script>
-
-
-<body ng-app="wui">
-  <div>
-      <wui-date
-              placeholder="yyyy-MM-dd hh:mm"
-              format="yyyy-MM-dd hh:mm"
-              interval="30"
-              btns="{'ok':'  确定  ','now':'  当前  '}"
-              ng-model="date1"/>
-  </div>
-  <div>
-      <wui-date
-              placeholder="yyyy-MM-dd"
-              format="yyyy-MM-dd"
-              ng-model="date2"
-              btns="{'ok':'  确定  ','now':'  当前  '}"></wui-date>
-  </div>
-
-  <input type="text" name="date1" id="date1">
-  
-  <input type="text" name="date2" id="date1">
-</body>
-</html> -->

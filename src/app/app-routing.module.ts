@@ -12,17 +12,17 @@ const routes: Routes = [
     path:'menu',component:MenuComponent
   },
   {
-    path:'test',component:TestComponent,
+    path:'orderListOuter',component:TestComponent,
     children: [
       {
           path: '',
           component: OrderListComponent,
-          outlet: 'outa'
+          outlet: 'outLeft'
       },
       {
           path: '',
           component: OrderListComponent,
-          outlet: 'outb'
+          outlet: 'outRight'
       }]
   },
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
     path:'error',component:ErrorComponent
   },
   {
-    path:'**',redirectTo:'test'
+    path:'**',redirectTo:'orderList'
   }
 ];
 
