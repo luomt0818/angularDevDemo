@@ -3,7 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 // import {Http,Response}   from '@angular/http';
 // import { HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { OrderList } from '../orderList/orderList';
+// import { OrderList } from '../orderList/orderList';
 // import 'rxjs/add/operator/toPromise';
 
 @Injectable({
@@ -13,7 +13,6 @@ export class ApiGetDateService {
 
   data:any[] =[];
   apiBase:String ="http://127.0.0.1:3000/";
-
 
 // constructor(public http:Http,public route:ActivatedRoute) { }
 
