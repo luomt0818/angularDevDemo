@@ -15,9 +15,14 @@ export class OrderMesaiComponent implements OnInit {
   searchMesaiList:any[] = [];
 
   constructor(public http:HttpClient,public router:Router,public apiGetDate:ApiGetDateService) { 
+    //1：直接使用请求方式
     // let api2="http://127.0.0.1:3000/search";
     // this.http.get(api2).subscribe((response:any)=>{
-    this.apiGetDate.getAll("search").subscribe((response:any)=>{
+
+    //2：统一封装请求方式1
+    // this.apiGetDate.getAll("search").subscribe((response:any)=>{
+    //2：统一封装请求方式2
+    this.apiGetDate.requestData({method:"get", url:"search",data:{"":""}}).subscribe((response:any)=>{
     this.searchMesaiList.push(response);
     });
   }
@@ -26,7 +31,7 @@ export class OrderMesaiComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/test']);
+    this.router.navigate(['/orderList']);
   }
 
   update() {
