@@ -43,7 +43,7 @@
 			<label class=" form-control-label">ITEM(PO)</label>
 		</div>
 		<div class="col-12 col-md-8">
-			<select name="productItem" id="productItem" [(ngModel)]="orderList.productItem">
+			<select name="productItem" id="productItem" [(ngModel)]="orderList.productItem" (click)="itemchange(orderList.productItem)">
 				<option [value]="productItemItem.value" *ngFor="let productItemItem of productItemList">
 					{{productItemItem.lable}}
 				</option>
@@ -51,11 +51,15 @@
 		</div>
 	</div>
 	<!-- black -->
-	<div class="row form-group">
-		<div class="col col-md-3">
-			<label class=" form-control-label">　</label>
+		<div class="row form-group"  *ngIf="orderList.productItemFlag==true">
+		<div class="col col-md-4">
+			<label class=" form-control-label">　
+					ITEM(PO)连动项目
+			</label>
 		</div>
-		<div class="col-12 col-md-9"></div>
+		<div class="col-12 col-md-8">
+			<input type="text" id="orderelse" name="orderelse" value={{orderList.productItemFlag}}>
+		</div>
 	</div>
 	<!-- 注文確定日 -->
 	<div class="row form-group">

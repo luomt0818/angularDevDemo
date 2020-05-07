@@ -29,13 +29,8 @@ export class OrderListComponent implements OnInit {
   }
 
   listInit() {
-    //下拉列表初期化
+    //下拉列表初期化,后台反馈值
     //ステータス
-    //1：直接使用请求方式
-    // let api1="http://127.0.0.1:3000/tscStatus";
-    // this.http.get(api1).subscribe((response1:any)=>{
-    //2：统一封装请求方式1
-    // this.apiGetDate.getAll("tscStatus").subscribe((response1:any)=>{
       //2：统一封装请求方式2
       this.apiGetDate.requestData({method:"get", url:"tscStatus",data:{"":""}}).subscribe((response1:any)=>{
       this.tscStatusList=response1;
@@ -45,11 +40,6 @@ export class OrderListComponent implements OnInit {
         return;
       });
       //ITEM(PO)
-      //1：直接使用请求方式
-      // let api2="http://127.0.0.1:3000/productItem";
-      // this.http.get(api2).subscribe((response2:any)=>{
-      //2：统一封装请求方式1
-      // this.apiGetDate.getAll("productItem").subscribe((response2:any)=>{
       //2：统一封装请求方式2
       this.apiGetDate.requestData({method:"get", url:"productItem",data:{"":""}}).subscribe((response2:any)=>{
       this.productItemList=response2;
@@ -57,21 +47,18 @@ export class OrderListComponent implements OnInit {
       this.errorMsg.push(this.handleError(error));
     });
       //生地インポーター
-      //1：直接使用请求方式
-      // let api3="http://127.0.0.1:3000/fablicImporter";
-      // this.http.get(api3).subscribe((response3:any)=>{
-      //2：统一封装请求方式1
-      // this.apiGetDate.getAll("fablicImporter").subscribe((response3:any)=>{
       //2：统一封装请求方式2
       this.apiGetDate.requestData({method:"get", url:"fablicImporter",data:{"":""}}).subscribe((response3:any)=>{
       this.fablicImporterList=response3;
       },error => {
         this.errorMsg.push(this.handleError(error));
       });
+
+      //ITEM(PO)连动项目
+      this.itemchange(this.orderList.productItem);
   }
 
   ngOnInit() {
-
     this.route.queryParams.subscribe((data)=>{
     this.orderList.orderId =data.orderId;
     this.orderList.productFabricNo =data.productFabricNo;
@@ -103,12 +90,6 @@ export class OrderListComponent implements OnInit {
 
     //error为空时，API发送
     if (this.errorMsg[0] == null) {
-      //1：直接使用请求方式
-      //手动设置请求的类型
-      const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
-
-      //2：统一封装请求方式1
-      // this.apiGetDate.getPost("dologin","orderList",this.orderList).subscribe((response:any)=>{
       //2：统一封装请求方式2
       this.apiGetDate.requestData({method:"post", url:"dologin",data:{"orderList":this.orderList}}).subscribe((response:any)=>{
       console.log(response.length);
@@ -119,12 +100,20 @@ export class OrderListComponent implements OnInit {
       },error => {
         this.errorMsg.push(this.handleError(error));
       })
-    }
-    
+    } 
   }
 
   checkboxOnclick(){
+  }
 
+  //ITEM(PO)连动项目
+  itemchange(productItemItem:string){
+
+    if(productItemItem=="01"){
+      this.orderList.productItemFlag=true;
+    } else {
+      this.orderList.productItemFlag=false;
+    }
   }
 
   //error处理

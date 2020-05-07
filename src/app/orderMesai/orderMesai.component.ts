@@ -16,8 +16,6 @@ export class OrderMesaiComponent implements OnInit {
 
   constructor(public http:HttpClient,public router:Router,public apiGetDate:ApiGetDateService) { 
 
-    //2：统一封装请求方式1
-    // this.apiGetDate.getAll("search").subscribe((response:any)=>{
     //2：统一封装请求方式2
     this.apiGetDate.requestData({method:"get", url:"search",data:{"":""}}).subscribe((response:any)=>{
     this.searchMesaiList.push(response);

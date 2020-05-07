@@ -4,6 +4,7 @@ export class OrderList {
     orderId:string;
     tscStatus:string;
     productItem:string;
+    productItemFlag:boolean;
     productOrderdDateFrom:string;
     productOrderdDateTo:string;
     custDeliverDateFrom:string;

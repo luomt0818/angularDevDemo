@@ -24,9 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/assets/css/wui.min.css",
-              "src/assets/css/icstyle.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
