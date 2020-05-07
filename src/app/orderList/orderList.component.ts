@@ -117,9 +117,6 @@ export class OrderListComponent implements OnInit {
       }
       console.log(this.orderMesai.length);
       },error => {
-        // if (error.status != 200){
-        //   this.errorMsg.push("网络断开,请求失败");
-        // }
         this.errorMsg.push(this.handleError(error));
       })
     }

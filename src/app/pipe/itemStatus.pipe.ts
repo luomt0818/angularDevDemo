@@ -14,22 +14,22 @@ export class ItemStatusPipe implements PipeTransform {
       case 'T1':
         status = '取り置き';
         break;
-        case 'T2':
+      case 'T2':
         status = '登録済';
         break;
       case 'T3':
         status = '会計済';
         break;
-        case 'T4':
+      case 'T4':
         status = '商品部承認済';
         break;
       case 'T5':
         status = 'メーカー承認済';
         break;
-        case 'T6':
+      case 'T6':
         status = '仕入済';
         break;
-        case 'T7':
+      case 'T7':
         status = 'お渡し済';
         break;
       default:

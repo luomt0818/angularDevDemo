@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ import { MenuComponent } from './menu/menu.component';
 import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
 import { TestComponent } from './test/test.component';
 import { ItemStatusPipe } from './pipe/itemStatus.pipe';
+import { OthersComponent } from './others/others.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ItemStatusPipe } from './pipe/itemStatus.pipe';
       MenuComponent,
       OrderMesaiComponent,
       TestComponent,
-      ItemStatusPipe
+      ItemStatusPipe,
+      OthersComponent
    ],
    imports: [
       BrowserModule,
@@ -40,6 +42,7 @@ import { ItemStatusPipe } from './pipe/itemStatus.pipe';
    providers: [],
    bootstrap: [
       AppComponent
-   ]
+   ],
+   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ import { ErrorComponent } from './error/error.component';
 import { MenuComponent } from './menu/menu.component';
 import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
 import { TestComponent } from './test/test.component';
+import { OthersComponent } from './others/others.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,9 @@ const routes: Routes = [
   },
   {
     path:'error',component:ErrorComponent
+  },
+  {
+    path:'others',component:OthersComponent
   },
   {
     path:'**',redirectTo:'orderList'

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>基于angular.js的WUI-DatePicker日期选择器插件</title>
+
+<!-- <link rel="stylesheet" type="text/css" href="../../assets/css/wui.min.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="../../assets/css/style.css"> -->
+
+<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/js/angular.min.js"></script>
+<script type="text/javascript" src="../../assets/js/wui-date.js" charset="utf-8"></script>
+<!-- <script type="text/javascript" src="../../assets/js/wui-date.min.js" charset="utf-8"></script> -->
+
+
+
+</head>
+<body ng-app="wui"> <script src="/demos/googlegg.js"></script>
+  <script type="text/javascript">
+    var app = angular.module('app',["wui.date"]);
+  </script>
+
+<div class="wui-content">
+	<div class="wui-area">
+		<h2 class="h2">WUI-DatePicker 日期选择器</h2>
+	</div>
+	<h3 class="h3">参考</h3>
+	<div class="wui-area">
+		<h4 class="h4">选择年月日</h4>
+		<p>输出格式yyyy-mm-dd</p>
+		<wui-date 
+			format="yyyy-mm-dd" 
+			placeholder="请选择或输入日期" 
+			id="date1" 
+			btns="{'ok':'确定','now':'此刻'}" 
+			ng-model="date1"
+		>
+		</wui-date>
+	</div>
+	<div class="wui-area">
+		<h4 class="h4">选择年月</h4>
+		<p>输出格式yyyy-mm</p>
+		<wui-date 
+			format="yyyy-mm" 
+			placeholder="请选择或输入日期" 
+			id="date2" 
+			btns="{'ok':'确定','now':'此刻','hitherto':true}" 
+			ng-model="date2"
+		>
+		</wui-date>
+	</div>
+	<div class="wui-area">
+		<h4 class="h4">选择年月日 时分</h4>
+		<p>输出格式yyyy-mm-dd hh:mm</p>
+		<wui-date 
+			format="yyyy-mm-dd hh:mm" 
+			placeholder="请选择或输入日期" 
+			id="date3" 
+			btns="{'ok':'确定','now':'此刻'}" 
+			ng-model="date3"
+		>
+		</wui-date>
+	</div>
+	<div class="wui-area">
+		<h4 class="h4">选择年月日 时分秒</h4>
+		<p>输出格式yyyy-mm-dd hh:mm:ss</p>
+		<wui-date 
+			format="yyyy-mm-dd hh:mm:ss" 
+			placeholder="请选择或输入日期" 
+			id="date4" 
+			btns="{'ok':'确定','now':'此刻'}" 
+			ng-model="date4"
+		>
+		</wui-date>
+	</div>
+	<div class="wui-area">
+		<h4 class="h4">选择'至今'</h4>
+		<p>有至今选项按钮</p>
+		<wui-date 
+			format="yyyy-mm-dd" 
+			placeholder="请选择或输入日期" 
+			id="date5" 
+			btns="{'hitherto':true}" 
+			ng-model="date5"
+		>
+		</wui-date>
+	</div>
+	</div>
+
+  <div>
+    <wui-date
+            placeholder="yyyy-MM-dd"
+            format="yyyy-MM-dd"
+            ng-model="date2"
+            btns="{'ok':'  确定  ','now':'  当前  '}"></wui-date>
+</div>
+</body>
+<!-- <script type="text/javascript">
+  let wui = angular.module("wui", ["wui.date"]);
+</script>
+
+<body ng-app="wui">
+  <div>aaaa
+      <wui-date
+              placeholder="yyyy-MM-dd hh:mm"
+              format="yyyy-MM-dd hh:mm"
+              interval="30"
+              btns="{'ok':'  确定  ','now':'  当前  '}"
+              ng-model="date1"></wui-date>
+  </div>
+  <div>
+      <wui-date
+              placeholder="yyyy-MM-dd"
+              format="yyyy-MM-dd"
+              ng-model="date2"
+              btns="{'ok':'  确定  ','now':'  当前  '}"></wui-date>
+  </div>
+  </body> -->
+</html>

@@ -260,6 +260,7 @@
 				<input type="checkbox" name="orderIndex" id="orderIndex">
 			</td>
 			<td><a routerLink="/mesai">{{item.orderId}}</a></td>
+			<!-- 自定义管道 -->
 			<td>{{item.tscStatusNm | itemStatus}}</td>
 			<td>{{item.productItemNm}}</td>
 			<td>{{item.productOrderdDateFrom}}</td>
@@ -267,6 +268,7 @@
 			<td>{{item.custDeliverDateFrom}}</td>
 			<td>{{item.custDeliverDateTo}}</td>
 			<td>{{item.productFabricNo}}</td>
+			<!-- 自带管道 -->
 			<td>{{item.custShopDeliveryDateFrom | date:'yyyy-MM-dd'}}</td>
 			<td>{{item.custShopDeliveryDateTo | date:'yyyy-MM-dd HH:mm:ss'}}</td>
 			<td>{{item.totalMoney | currency}}</td>
