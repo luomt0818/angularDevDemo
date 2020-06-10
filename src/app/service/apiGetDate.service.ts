@@ -33,16 +33,21 @@ constructor(public http:HttpClient,public route:ActivatedRoute) { }
    */
   public requestData(params: any): any {
     //手动设置请求的类型
-    const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
+    const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })};
 
     let apiUrl=this.apiBase+ params['url'];
     // POST请求（参数、返回值类型都是任意类型）
     if (params['method'] == 'post' || params['method'] == 'POST') {
       // return this.post(params['url'],params['data']);
       return this.http.post(apiUrl,params['data'],httpOptions);
-    } else { // 其他请求
-      // return this.get(params['url'],params['data']);
+    }else if (params['method'] == 'get' || params['method'] == 'GET') {
       return this.http.get(apiUrl,params['data']);
+    } else { // 其他请求
+      //get
+      // return this.http.get(params['url'],params['data']);
+      //post
+      return this.http.post(params['url'],params['data'],httpOptions);
+      
     }
   }
 }

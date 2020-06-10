@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { OrderList } from './orderList';
+import { ApiResult } from './apiResult';
 import { HttpClient,HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
@@ -22,6 +23,7 @@ export class OrderListComponent implements OnInit {
   errorMsg:string[] = [];
   errorMessage:string;
   data:any[] =[];
+  apiResult = new ApiResult();
 
   constructor(public http:HttpClient,public route:ActivatedRoute,public apiGetDate:ApiGetDateService) { 
     //下拉列表初期化
@@ -92,6 +94,7 @@ export class OrderListComponent implements OnInit {
     if (this.errorMsg[0] == null) {
       //2：统一封装请求方式2
       this.apiGetDate.requestData({method:"post", url:"dologin",data:{"orderList":this.orderList}}).subscribe((response:any)=>{
+        // response.set({'Access-Control-Allow-Origin': 'http://localhost:8080'}).send("OK")
       console.log(response.length);
       for (var i=0;i<response.length;i++) {
         this.orderMesai.push(response[i]);
@@ -160,6 +163,41 @@ export class OrderListComponent implements OnInit {
     // 弹框表示
     // handleAlert.call(null, message);
     return message;
+  }
+
+
+  //检索
+  searchRestOrder(){
+
+    this.errorMsg.splice(0,this.errorMsg.length);
+    this.orderMesai.splice(0,this.orderMesai.length);
+
+    //error为空时，API发送
+    if (this.errorMsg[0] == null) {
+      //2：统一封装请求方式2
+      // this.apiGetDate.requestData({method:"getrest", url:"http://localhost:8080/aoyama-rest-web/",data:{}}).subscribe((response:any)=>{
+      //this.apiGetDate.requestData({method:"rest", url:"/aoyama-macchinetta-web/pdfFile/poPdfFileDownload",data:{}}).subscribe((response:any)=>{
+      var param={
+          "todoTitle": "luotest0609",
+          "finished": "false",
+          "createdAt": "2020-06-01T08:23:55.653+0000"
+        }
+      let jsonData=JSON.stringify(param);
+
+      this.apiGetDate.requestData({method:"rest", url:"/todo/api/v1/todos",data:jsonData}).subscribe((response:any)=>{
+      console.log("aaaa:" + response);
+      //this.apiResult = response;
+      //this.apiResult = JSON.parse(response);
+      this.apiResult = JSON.parse(response);
+      console.log("bbb:" + this.apiResult);
+      //console.log("bbb:" + JSON.stringify(response));
+      console.log(this.apiResult.errorCode + ":" + this.apiResult.message);
+      },error => {
+        this.errorMsg.push(this.handleError(error));
+      })
+
+      console.log("rest web");
+    } 
   }
 
 }

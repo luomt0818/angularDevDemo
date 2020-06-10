@@ -17,6 +17,11 @@ import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
 import { TestComponent } from './test/test.component';
 import { ItemStatusPipe } from './pipe/itemStatus.pipe';
 import { OthersComponent } from './others/others.component';
+import { GridDemoComponent } from './gridDemo/gridDemo.component';
+
+import { AngularSlickgridModule } from 'angular-slickgrid';
+import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 @NgModule({
@@ -28,7 +33,9 @@ import { OthersComponent } from './others/others.component';
       OrderMesaiComponent,
       TestComponent,
       ItemStatusPipe,
-      OthersComponent
+      OthersComponent,
+      GridDemoComponent,
+      PdfViewerComponent
    ],
    imports: [
       BrowserModule,
@@ -37,12 +44,29 @@ import { OthersComponent } from './others/others.component';
       FormsModule,
       CommonModule,
       HttpClientModule,
-      HttpClientJsonpModule
+      HttpClientJsonpModule,
+      AngularSlickgridModule,
+      PdfViewerModule
+      //AngularSlickgridModule\nAngularSlickgridModule.forRoot(\n//addanyGlobalGridOptions/Configyoumightwant\n//toavoidpassingthesameoptionsoverandoverineachgridsofyourApp\nenableAutoResize
+ //  ]
+//})
+
+// AngularSlickgridModule.forRoot({
+//    // add any Global Grid Options/Config you might want
+//    // to avoid passing the same options over and over in each grids of your App
+//    enableAutoResize: true,
+//    autoResize: {
+//      containerId: 'demo-container',
+//      sidePadding: 10
+//    }
+//  })
    ],
    providers: [],
    bootstrap: [
       AppComponent
    ],
-   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+   schemas: [
+      CUSTOM_ELEMENTS_SCHEMA
+   ]
 })
 export class AppModule { }

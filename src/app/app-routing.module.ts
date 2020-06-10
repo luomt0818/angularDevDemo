@@ -7,10 +7,18 @@ import { MenuComponent } from './menu/menu.component';
 import { OrderMesaiComponent } from './orderMesai/orderMesai.component';
 import { TestComponent } from './test/test.component';
 import { OthersComponent } from './others/others.component';
+import { GridDemoComponent } from './gridDemo/gridDemo.component';
+import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 
 const routes: Routes = [
   {
     path:'menu',component:MenuComponent
+  },
+  {
+    path:'angular-slickgrid',component:GridDemoComponent
+  },
+  {
+    path:'pdfViewer',component:PdfViewerComponent
   },
   {
     path:'orderListOuter',component:TestComponent,

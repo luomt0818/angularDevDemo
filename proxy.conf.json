@@ -1,0 +1,10 @@
+{
+    "/aoyama-macchinetta-web":{
+        "target":"http://localhost:8080/",
+        "secure":false
+    },
+    "/todo":{
+        "target":"http://localhost:8080/",
+        "secure":false
+    }
+}
