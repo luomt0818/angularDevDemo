@@ -21,6 +21,7 @@ import { GridDemoComponent } from './gridDemo/gridDemo.component';
 
 import { AngularSlickgridModule } from 'angular-slickgrid';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
+// import { PdfmakeModule } from 'ng-pdf-make';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
@@ -45,21 +46,16 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
       CommonModule,
       HttpClientModule,
       HttpClientJsonpModule,
-      AngularSlickgridModule,
+      // PdfViewerModule
+      AngularSlickgridModule.forRoot({
+      // add any Global Grid Options/Config you might want
+      // to avoid passing the same options over and over in each grids of your App
+      enableAutoResize: true,
+      autoResize: {
+      containerId: 'demo-container',
+      sidePadding: 10}}),
+      // PdfmakeModule
       PdfViewerModule
-      //AngularSlickgridModule\nAngularSlickgridModule.forRoot(\n//addanyGlobalGridOptions/Configyoumightwant\n//toavoidpassingthesameoptionsoverandoverineachgridsofyourApp\nenableAutoResize
- //  ]
-//})
-
-// AngularSlickgridModule.forRoot({
-//    // add any Global Grid Options/Config you might want
-//    // to avoid passing the same options over and over in each grids of your App
-//    enableAutoResize: true,
-//    autoResize: {
-//      containerId: 'demo-container',
-//      sidePadding: 10
-//    }
-//  })
    ],
    providers: [],
    bootstrap: [
